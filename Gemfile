@@ -27,7 +27,6 @@ gem "responders"
 gem "seedbank"
 gem "sidekiq"
 gem "turbolinks", "~> 5"
-gem "webpacker"
 
 group :development, :test do
   gem "brakeman"
