@@ -16,6 +16,7 @@ gem "sass-rails"
 gem "uglifier"
 
 # views
+gem "simple_calendar"
 gem "simple_form"
 
 # all other gems
