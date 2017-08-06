@@ -15,9 +15,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(event_params)
-    @event.save
-    respond_with(current_user, @event)
+    result = CreateEvent.call(user: current_user, params: event_params)
+    @event = result.event
+    respond_with(@event)
   end
 
   def edit
@@ -25,12 +25,12 @@ class EventsController < ApplicationController
 
   def update
     @event.update_attributes(event_params)
-    respond_with(current_user, @event)
+    respond_with(@event)
   end
 
   def destroy
     @event.destroy
-    respond_with(current_user, @event)
+    respond_with(@event)
   end
 
   private
