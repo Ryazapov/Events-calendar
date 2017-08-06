@@ -9,6 +9,8 @@ gem "rails", "5.1.2"
 # assets
 gem "autoprefixer-rails"
 gem "coffee-rails"
+gem "font-awesome-rails"
+gem "foundation-datepicker-rails"
 gem "foundation-rails"
 gem "jquery-rails"
 gem "mini_racer"
