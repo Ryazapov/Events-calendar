@@ -1,8 +1,7 @@
 <div class="row align-middle columns text-center">
   <div class="small-10 columns">
-    <%= @user.full_name %>
   <div class="small-2 columns">
-    <%= link_to '+', new_user_event_path, class: 'small button' %>
+    <%= link_to '+', new_event_path, class: 'small button' %>
   </div>
   <% @events.each do | event | %>
     <%= render 'events/shared/event', event: event %>
