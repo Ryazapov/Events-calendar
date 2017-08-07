@@ -3,7 +3,7 @@
   <div class="small-2 columns">
     <%= link_to '+', new_event_path, class: 'small button' %>
   </div>
-  <% @events.each do | event | %>
+  <% events.each do | event | %>
     <%= render 'events/shared/event', event: event %>
   <% end %>
   </div>
