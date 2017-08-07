@@ -85,6 +85,8 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     database_cleaner (1.6.1)
+    decent_exposure (3.0.2)
+      activesupport (>= 4.0)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -334,6 +336,7 @@ DEPENDENCIES
   capybara-selenium
   coffee-rails
   database_cleaner
+  decent_exposure
   devise
   dotenv-rails
   email_spec

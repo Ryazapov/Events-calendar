@@ -22,6 +22,7 @@ gem "simple_calendar"
 gem "simple_form"
 
 # all other gems
+gem "decent_exposure"
 gem "devise"
 gem "foreman"
 gem "interactor"
