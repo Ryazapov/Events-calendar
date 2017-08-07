@@ -1,36 +1,37 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_event, only: %i[show edit update destroy]
+  expose :events, ->{ Event.all }
+  expose :event, build: ->(params){
+    result = CreateEvent.call(user: current_user, params: params)
+    result.success? ? result.event : Event.new(params)
+  }
   before_action :authorize_event!, only: %i[edit update destroy]
 
   def index
-    @events = Event.all
   end
 
   def new
-    @event = Event.new
   end
 
   def show
   end
 
   def create
-    result = CreateEvent.call(user: current_user, params: event_params)
-    @event = result.event
-    respond_with(@event)
+    event.save
+    respond_with(event)
   end
 
   def edit
   end
 
   def update
-    @event.update_attributes(event_params)
-    respond_with(@event)
+    event.update_attributes(event_params)
+    respond_with(event)
   end
 
   def destroy
-    @event.destroy
-    respond_with(@event)
+    event.destroy
+    respond_with(event)
   end
 
   private
@@ -39,11 +40,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :event_type, :start_date, :end_date, :description)
   end
 
-  def find_event
-    @event = Event.find params[:id]
-  end
-
   def authorize_event!
-    authorize @event, :manage?
+    authorize event, :manage?
   end
 end
