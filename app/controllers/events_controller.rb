@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   expose :events, ->{ Event.all }
   expose :event, build: ->(params){
     result = CreateEvent.call(user: current_user, params: params)
-    result.success? ? result.event : Event.new(params)
+    result.event
   }
   before_action :authorize_event!, only: %i[edit update destroy]
 

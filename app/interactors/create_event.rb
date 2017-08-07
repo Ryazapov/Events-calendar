@@ -5,7 +5,6 @@ class CreateEvent
 
   def call
     context.event = build_event
-    context.fail! unless context.event.save
   end
 
   private
