@@ -15,17 +15,26 @@ class EventForm
 
   _bindEvents: ->
     @$el.on "change", EVENT_TYPE, @_handleEventTypeChange
+    @$el.on "change", START_DATE, @_handleOnceEventStartDateChange
 
   _handleEventTypeChange: =>
     event_type_input = $(EVENT_TYPE)
+    start_date_input = $(START_DATE)
     end_date_input = $(END_DATE)
     end_date_parent = end_date_input.parent().parent()
     if (event_type_input.val() == EVENT_TYPE_ONCE)
       end_date_parent.hide()
-      end_date_input.val('')
+      end_date_input.val(start_date_input.val())
     else
       end_date_parent.removeClass(HIDE_CLASS)
       end_date_parent.show()
+
+  _handleOnceEventStartDateChange: =>
+    event_type_input = $(EVENT_TYPE)
+    start_date_input = $(START_DATE)
+    end_date_input = $(END_DATE)
+    if (event_type_input.val() == EVENT_TYPE_ONCE)
+      end_date_input.val(start_date_input.val())
 
   _addCalendar:(inputId) =>
     $(inputId).fdatepicker
