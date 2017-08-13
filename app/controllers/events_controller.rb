@@ -1,10 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  expose :events, ->{ Event.all }
-  expose :event, build: ->(params){
-    result = CreateEvent.call(user: current_user, params: params)
-    result.event
-  }
+  expose :events, -> { Event.all }
+  expose :event, build: ->(params) { build_event(params) }
   before_action :authorize_event!, only: %i[edit update destroy]
 
   def index
@@ -42,5 +39,10 @@ class EventsController < ApplicationController
 
   def authorize_event!
     authorize event, :manage?
+  end
+
+  def build_event(params)
+    result = CreateEvent.call(user: current_user, params: params)
+    result.event
   end
 end
