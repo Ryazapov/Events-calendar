@@ -6,20 +6,15 @@
               url: url do |f| %>
         <legend>
           <%= "#{action} your " %>
+          <strong>
+            Event
+          </strong>
         </legend>
-        <strong>
-          Event
-        </strong>
 
         <div class="form-inputs">
           <%= f.input :title, required: true, autofocus: true %>
           <%= f.input :event_type, collection: Event.event_types, default: Event.event_types.first %>
-          <%= f.input :start_date, required: true, as: :datepicker, autocomplete: "off" %>
-          <% if event.event_type.nil? || event.once? %>
-            <%= f.input :end_date, as: :datepicker, wrapper_html: {class: 'hide'} %>
-          <% else %>
-            <%= f.input :end_date, as: :datepicker %>
-          <% end %>
+          <%= f.input :date, required: true, as: :datepicker, autocomplete: "off" %>
           <%= f.input :description, as: :text %>
         </div>
 

@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 20170726142833) do
   create_table "events", force: :cascade do |t|
     t.string "title", limit: 255, null: false
     t.string "event_type", null: false
-    t.datetime "start_date", null: false
-    t.datetime "end_date", null: false
+    t.datetime "date", null: false
     t.string "description", limit: 500
     t.bigint "user_id"
     t.datetime "created_at", null: false

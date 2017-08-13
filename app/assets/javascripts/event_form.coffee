@@ -1,40 +1,8 @@
 class EventForm
-  EVENT_TYPE = "#event_event_type"
-  START_DATE = "#event_start_date"
-  END_DATE = "#event_end_date"
-
-  HIDE_CLASS = "hide"
-
-  EVENT_TYPE_ONCE = "once"
+  DATE = "#event_date"
 
   constructor: (@$el) ->
-    @_addCalendar(START_DATE)
-    @_addCalendar(END_DATE)
-
-    @_bindEvents()
-
-  _bindEvents: ->
-    @$el.on "change", EVENT_TYPE, @_handleEventTypeChange
-    @$el.on "change", START_DATE, @_handleOnceEventStartDateChange
-
-  _handleEventTypeChange: =>
-    event_type_input = $(EVENT_TYPE)
-    start_date_input = $(START_DATE)
-    end_date_input = $(END_DATE)
-    end_date_parent = end_date_input.parent().parent()
-    if (event_type_input.val() == EVENT_TYPE_ONCE)
-      end_date_parent.hide()
-      end_date_input.val(start_date_input.val())
-    else
-      end_date_parent.removeClass(HIDE_CLASS)
-      end_date_parent.show()
-
-  _handleOnceEventStartDateChange: =>
-    event_type_input = $(EVENT_TYPE)
-    start_date_input = $(START_DATE)
-    end_date_input = $(END_DATE)
-    if (event_type_input.val() == EVENT_TYPE_ONCE)
-      end_date_input.val(start_date_input.val())
+    @_addCalendar(DATE)
 
   _addCalendar:(inputId) =>
     $(inputId).fdatepicker
