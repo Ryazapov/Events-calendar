@@ -7,7 +7,10 @@ module Events
     end
 
     def all
-      Event.where(start_date <= current_month.last).where(end_date >= current_month.first)
+      Event.where(event_type: :once).where(date: current_month).or(
+      Event.where(event_type: %i(daily weekly monthly)).or(Event.where(event_type: :yearly).where(
+      "extract(month from date) = :date_month", date_month: current_month.first.month)).where("date <= :date",
+      date: current_month.last))
     end
   end
 end
