@@ -1,0 +1,83 @@
+$tab-background: $white;
+$tab-background-active: #2199E8;
+
+.in-active {
+  li.is-active {
+    a {
+      color: $white;
+    }
+  }
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: 2px;
+}
+.once-event {
+  background: red;
+}
+
+.daily-event {
+  background: green;
+}
+
+.weekly-event {
+  background: cornflowerblue;
+}
+
+.monthly-event {
+  background: fuchsia;
+}
+
+.yearly-event {
+  background: rebeccapurple;
+}
+
+.simple-calendar {
+  td.current-month:hover {
+    cursor: pointer;
+    background: $primary-color;
+    border: 5px solid
+  }
+}
+
+.event {
+  border-top: 1px solid #C2C2C2
+}
+
+.align-middle {
+  display: table;
+}
+
+.align-middle .columns {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.align-middle .columns,
+.align-middle [class*="column"] + [class*="column"]:last-child {
+  float: none;
+}
+
+.small.button {
+  margin-top: 1rem;
+}
+
+.footer {
+  background-color: #2199E8;
+  text-align: center;
+  font-size: 1.2rem;
+  color: $white;
+  padding: 2rem;
+  a {
+    color: $white;
+    font-size: small;
+  }
+  a:hover {
+    color: $black;
+  }
+}

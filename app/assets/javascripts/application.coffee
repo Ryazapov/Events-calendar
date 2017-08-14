@@ -14,8 +14,6 @@
 #= require jquery_ujs
 #= require foundation
 #= require foundation-datepicker
-#= require rails-ujs
-#= require turbolinks
 #= require_tree .
 
 $(document).foundation()
