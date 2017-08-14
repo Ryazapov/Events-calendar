@@ -1,3 +1,41 @@
 <%= month_calendar do |date| %>
-  <%= date %>
+  <% if @start_date.month == date.month %>
+    <div class="text-right">
+        <%= day_of_date(date) %>
+    </div>
+    <% if @event_types_by_day[date.day] %>
+      <% @event_types_by_day[date.day].each do |event_type| %>
+        <% case event_type
+          when "once" %>
+          <div class="circle once-event float-left">
+          </div/>
+        <% when "daily" %>
+          <div class="circle daily-event float-left">
+          </div/>
+        <% when "weekly" %>
+          <div class="circle weekly-event float-left">
+          </div/>
+        <% when "monthly" %>
+          <div class="circle monthly-event float-left">
+          </div/>
+        <% when "yearly" %>
+          <div class="circle yearly-event float-left">
+          </div/>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="reveal" data-reveal="" id=<%= date %>>
+    <button class="close-button" aria-label=("Close modal") data-close="" type="button">
+      <span aria-hidden="true">&times</span>
+    </button>
+    <p>
+      <% if @events[date.day] %>
+        <% @events[date.day].each do |event| %>
+          <%= render "events/shared/event", event: event %>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
 <% end %>
