@@ -1,16 +1,38 @@
 module Events
   class EventsQuery
-    attr_reader :current_month
+    attr_reader :month_range
+    private :month_range
 
-    def initialize(current_month)
-      @current_month = current_month
+    def initialize(month_range)
+      @month_range = month_range
     end
 
     def all
-      Event.where(event_type: :once).where(date: current_month).or(Event.where(event_type: %i[daily weekly monthly])
-           .or(Event.where(event_type: :yearly)
-           .where("extract(month from date) = :date_month", date_month: current_month.first.month))
-           .where("date <= :date", date: current_month.last))
+      once_events.or(daily_weekly_monthly_events).or(yearly_events)
+    end
+
+    private
+
+    def once_events
+      Event.once.by_date(month_range)
+    end
+
+    def daily_weekly_monthly_events
+      Event.where(event_type: %i[daily weekly monthly]).before_date(last_day_in_month)
+    end
+
+    def yearly_events
+      Event.yearly
+        .by_month(first_day_in_month.month)
+        .before_date(last_day_in_month)
+    end
+
+    def first_day_in_month
+      month_range.first
+    end
+
+    def last_day_in_month
+      month_range.last
     end
   end
 end
