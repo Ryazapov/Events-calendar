@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   expose :events, -> { Event.all }
-  expose :event, parent: :current_user
+  expose :event
   before_action :authorize_event!, only: %i[edit update destroy]
 
   def index
@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    event.user = current_user
     event.save
     respond_with(event)
   end

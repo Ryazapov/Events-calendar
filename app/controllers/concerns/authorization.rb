@@ -9,6 +9,6 @@ module Authorization
   private
 
   def user_not_authorized
-    redirect_to(root_path)
+    render file: Rails.root.join("public", "403.html"), status: 403, layout: false
   end
 end
