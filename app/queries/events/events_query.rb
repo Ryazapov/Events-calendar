@@ -23,8 +23,8 @@ module Events
 
     def yearly_events
       Event.yearly
-        .by_month(first_day_in_month.month)
-        .before_date(last_day_in_month)
+           .by_month(first_day_in_month.month)
+           .before_date(last_day_in_month)
     end
 
     def first_day_in_month
