@@ -1,7 +1,6 @@
 class BaseSection < SitePrism::Section
-  include \
-    PageHelpers,
-    RSpec::Matchers
+  include PageHelpers
+  include RSpec::Matchers
 
   def page
     @root_element || Capybara.current_session

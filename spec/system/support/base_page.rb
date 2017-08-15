@@ -1,7 +1,6 @@
 class BasePage < SitePrism::Page
-  include \
-    PageHelpers,
-    RSpec::Matchers
+  include PageHelpers
+  include RSpec::Matchers
 
   private
 
