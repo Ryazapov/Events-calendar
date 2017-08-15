@@ -11,17 +11,21 @@ class CalendarService
   def events
     events = Events::EventsQuery.new(current_month).all
 
-    events.each do |event|
-      add_event_by_type(event)
-    end
-    events_by_day
+    group_events_by_day(events)
   end
 
   private
 
+  def group_events_by_day(events)
+    events.each { |event| add_event_by_type(event) }
+
+    events_by_day
+  end
+
   def add_event(event, date)
-    events_by_day[date.day] = [] unless events_by_day[date.day]
+    events_by_day[date.day] ||= []
     events_by_day[date.day].push(event)
+
     add_event_type(event.event_type, date)
   end
 
@@ -37,25 +41,23 @@ class CalendarService
   end
 
   def add_event_type(event_type, date)
-    event_types_by_day[date.day] = Set.new unless event_types_by_day[date.day]
+    event_types_by_day[date.day] ||= Set.new
     event_types_by_day[date.day].add(event_type)
   end
 
   def between_date(event)
-    from = current_month.first > event.date ? current_month.first : event.date.to_date
+    from = [current_month.first, event.date.to_date].max
+
     (from..current_month.last)
   end
 
   def daily_event(event)
-    between_date(event).each do |date|
-      add_event(event, date)
-    end
+    between_date(event).each { |date| add_event(event, date) }
   end
 
   def weekly_event(event)
-    result = between_date(event).group_by(&:wday)[event.date.wday]
-    result.each do |date|
-      add_event(event, date)
-    end
+    days_by_event_weekday = between_date(event).group_by(&:wday)[event.date.wday]
+
+    days_by_event_weekday.each { |date| add_event(event, date) }
   end
 end
