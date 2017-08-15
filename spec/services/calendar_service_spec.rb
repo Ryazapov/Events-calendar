@@ -1,7 +1,7 @@
 describe CalendarService do
-  let(:current_month) { ("01/03/2017".to_date.."31/03/2017".to_date) }
-
   subject(:query) { described_class.new(current_month) }
+
+  let(:current_month) { ("01/03/2017".to_date.."31/03/2017".to_date) }
 
   describe "#events" do
     subject(:events) { query.events }
