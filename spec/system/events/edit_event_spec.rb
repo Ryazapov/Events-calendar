@@ -43,4 +43,8 @@ feature "Edit Event" do
       expect(page).to have_content("Log in")
     end
   end
+
+  def event_edit_page
+    @event_edit_page = EventPage::Edit.new
+  end
 end

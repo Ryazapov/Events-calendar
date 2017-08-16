@@ -28,4 +28,8 @@ feature "Create Event" do
       expect(page).to have_content("Log in")
     end
   end
+
+  def event_new_page
+    @event_new_page = EventPage::New.new
+  end
 end
