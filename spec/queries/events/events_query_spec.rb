@@ -28,14 +28,16 @@ describe Events::EventsQuery do
     subject { query.all }
 
     it do
-      is_expected.to match_array [once_event_current_month,
-                                  daily_event_previous_month,
-                                  daily_event_current_month,
-                                  weekly_event_previous_month,
-                                  weekly_event_current_month,
-                                  monthly_event_previous_month,
-                                  monthly_event_current_month,
-                                  yearly_event_current_month]
+      is_expected.to match_array [
+        once_event_current_month,
+        daily_event_previous_month,
+        daily_event_current_month,
+        weekly_event_previous_month,
+        weekly_event_current_month,
+        monthly_event_previous_month,
+        monthly_event_current_month,
+        yearly_event_current_month
+      ]
     end
   end
 end

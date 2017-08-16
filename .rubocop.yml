@@ -74,3 +74,10 @@ Layout/AlignParameters:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 2
+
+RSpec/LetSetup:
+  Enabled: false
