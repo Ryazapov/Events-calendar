@@ -45,7 +45,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-rspec"
-  gem "selenium-webdriver"
 end
 
 group :development do
@@ -59,9 +58,9 @@ end
 
 group :test do
   gem "capybara", "~> 2.14"
-  gem "capybara-selenium"
   gem "database_cleaner"
   gem "email_spec"
+  gem "poltergeist"
   gem "rspec_junit_formatter"
   gem "shoulda-matchers"
   gem "site_prism"
