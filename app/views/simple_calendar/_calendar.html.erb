@@ -30,12 +30,10 @@
     <button class="close-button" aria-label=("Close modal") data-close="" type="button">
       <span aria-hidden="true">&times</span>
     </button>
-    <p>
-      <% if @events[date.day] %>
-        <% @events[date.day].each do |event| %>
-          <%= render "events/shared/event", event: event %>
-        <% end %>
+    <% if @events[date.day] %>
+      <% @events[date.day].each do |event| %>
+        <%= render "events/shared/event", event: event %>
       <% end %>
-    </p>
+    <% end %>
   </div>
 <% end %>
