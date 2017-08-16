@@ -1,5 +1,5 @@
 module EventPage
-  class Edit < BasePage
+  class Edit < SitePrism::Page
     set_url_matcher %r{http:\/\/.+\..{2}:\d{5}\/events\/\d+\/edit}
 
     section :form, ".simple_form" do
