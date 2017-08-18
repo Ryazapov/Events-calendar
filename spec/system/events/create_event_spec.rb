@@ -14,7 +14,7 @@ feature "Create Event" do
       form.event_type.set event_attributes[:event_type]
       form.description.set event_attributes[:description]
 
-      click_on "Create"
+      click_on "Create Event"
 
       expect(page).to have_content(event_attributes[:title])
       expect(page).to have_content(event_attributes[:description])
@@ -25,7 +25,7 @@ feature "Create Event" do
     scenario "user cannot create event" do
       visit new_event_path
 
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Sign in")
     end
   end
 

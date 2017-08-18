@@ -17,7 +17,7 @@ feature "Edit Event" do
       form.title.set "Updated title"
       form.description.set "Updated description"
 
-      click_on "Edit"
+      click_on "Update Event"
 
       expect(page).to have_content("Updated title")
       expect(page).to have_content("Updated description")
@@ -25,7 +25,7 @@ feature "Edit Event" do
 
     scenario "user cannot edit another user's event" do
       visit event_path(another_event)
-      expect(page).to have_no_content("Edit")
+      expect(page).to have_no_content("Update Event")
 
       visit edit_event_path(another_event)
       expect(page).to have_content("Перейти к главной странице")
@@ -40,7 +40,7 @@ feature "Edit Event" do
       expect(page).to have_no_content("edit")
 
       visit edit_event_path(event)
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Sign in")
     end
   end
 
