@@ -1,10 +1,13 @@
 <div class="row align-middle columns text-center">
-  <div class="small-10 columns">
-  <div class="small-2 columns">
-    <%= link_to '+', new_event_path, class: 'small button' %>
+  <div class="small-10 columns" style="height: 50px;">
+    <%= "Events: #{user.email}" %>
   </div>
-  <% events.each do | event | %>
-    <%= render 'events/shared/event', event: event %>
-  <% end %>
-  </div>
+  <% if current_user == user %>
+    <div class="small-2 columns">
+      <%= link_to '+', new_event_path, class: 'small button' %>
+    </div>
+  <% end%>
 </div>
+<% events.each do | event | %>
+  <%= render 'events/shared/event', event: event %>
+<% end %>

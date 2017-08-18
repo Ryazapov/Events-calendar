@@ -12,10 +12,12 @@
   </head>
 
   <body>
-    <%= render "shared/header" %>
+    <div class="row large-8 small-12">
+      <%= render "shared/navigation/navigation" %>
 
-    <%= yield %>
-    
+      <%= yield %>
+    </div>
+
     <%= javascript_include_tag :application %>
   </body>
 </html>

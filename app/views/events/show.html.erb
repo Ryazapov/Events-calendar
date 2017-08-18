@@ -14,7 +14,7 @@
     Author:
   </div>
   <div class="small-8 columns">
-    <%= link_to event.user.email, events_path(event.user_id) %>
+    <%= link_to event.user.email, user_events_path(event.user_id) %>
   </div>
 </div>
 <div class="row">
@@ -30,7 +30,7 @@
     Date:
   </div>
   <div class="small-8 columns">
-    <%= event.date %>
+    <%= full_date(event.date) %>
   </div>
 </div>
 <div class="row">

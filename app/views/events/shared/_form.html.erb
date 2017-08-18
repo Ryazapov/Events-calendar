@@ -1,6 +1,6 @@
-<div class="event-form">
+<div class="event-form row large-8 large-centered medium-10 medium-centered small-12 columns">
   <div class="row">
-    <div class="large-8 large-centered medium-10 medium-centered small-12 columns">
+    <div class="small-12 columns">
       <%= simple_form_for event,
               as: event,
               url: url do |f| %>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, action %>
+          <%= f.button :submit %>
         </div>
       <% end %>
     </div>
