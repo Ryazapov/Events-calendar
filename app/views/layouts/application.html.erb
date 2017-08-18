@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Calendar" %></title>
+    <%= favicon_link_tag 'calendar.png' %>
 
     <%= stylesheet_link_tag :application %>
 
