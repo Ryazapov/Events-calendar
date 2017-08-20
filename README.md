@@ -1,24 +1,7 @@
-# README
+Events calendar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ссылка на heroku: ruby-calendar.herokuapp.com
 
-Things you may want to cover:
+Дополнительный функционал:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Отобрежание типов событий, которые происходят в текущий день
