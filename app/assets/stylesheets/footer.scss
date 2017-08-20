@@ -1,0 +1,14 @@
+.footer {
+  background-color: #2199E8;
+  text-align: center;
+  font-size: 1.2rem;
+  color: $white;
+  padding: 2rem;
+  a {
+    color: $white;
+    font-size: small;
+  }
+  a:hover {
+    color: $black;
+  }
+}

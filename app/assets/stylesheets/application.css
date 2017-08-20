@@ -17,5 +17,6 @@
  *= require font-awesome
  *= require simple_calendar
  *= require calendar
+ *- require footer
 
  */
