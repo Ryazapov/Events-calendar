@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Calendar" %></title>
-    <%= favicon_link_tag 'calendar.png' %>
+    <%= favicon_link_tag "calendar.png" %>
 
     <%= stylesheet_link_tag :application %>
 
@@ -17,6 +17,7 @@
       <%= render "shared/navigation/navigation" %>
 
       <%= yield %>
+      <%= render "shared/footer" %>
     </div>
 
     <%= javascript_include_tag :application %>
