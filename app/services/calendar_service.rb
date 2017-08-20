@@ -24,7 +24,7 @@ class CalendarService
 
   def add_event(event, date)
     events_by_day[date.day] ||= []
-    events_by_day[date.day].push(event)
+    events_by_day[date.day].push(event.decorate)
 
     add_event_type(event.event_type, date)
   end
