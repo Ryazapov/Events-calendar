@@ -1,7 +1,7 @@
 <ul class="top-bar-right dropdown menu" data-dropdown-menu>
   <% if user_signed_in? %>
   <li>
-    <a><%= current_user.email %></a></a>
+    <a><%= current_user.full_name %></a></a>
     <ul>
       <%= link_to "Edit profile", edit_user_registration_path %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
