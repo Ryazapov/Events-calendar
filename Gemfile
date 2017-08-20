@@ -22,8 +22,10 @@ gem "simple_calendar"
 gem "simple_form"
 
 # all other gems
+gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
+gem "draper"
 gem "foreman"
 gem "interactor"
 gem "kaminari"
