@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def create
     event.user = current_user
     event.save
+
     respond_with(event)
   end
 
@@ -24,11 +25,13 @@ class EventsController < ApplicationController
 
   def update
     event.update_attributes(event_params)
+
     respond_with(event)
   end
 
   def destroy
     event.destroy
+    
     respond_with(event)
   end
 
