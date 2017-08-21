@@ -1,5 +1,5 @@
 class EventDecorator < ApplicationDecorator
-  delegate_all
+  delegate :title, :event_type, :date, :description, :user, :user_id, :persisted?
 
   def date
     object.date&.strftime("%d/%m/%Y")
