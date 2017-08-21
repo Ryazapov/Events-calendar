@@ -1,18 +1,20 @@
-<ul class="top-bar-right dropdown menu" data-dropdown-menu>
-  <% if user_signed_in? %>
-  <li>
-    <a><%= current_user.full_name %></a></a>
-    <ul>
-      <%= link_to "Edit profile", edit_user_registration_path %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </ul>
-  </li>
-  <% else %>
-    <li>
-      <%= link_to "Sign in", new_user_session_path %>
+<div class="top-bar-right">
+  <ul class="dropdown menu" data-dropdown-menu>
+    <% if user_signed_in? %>
+    <li data-alignment="left">
+      <a><%= current_user.full_name %></a></a>
+      <ul>
+        <%= link_to "Edit profile", edit_user_registration_path %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      </ul>
     </li>
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
-  <% end %>
-</ul>
+    <% else %>
+      <li>
+        <%= link_to "Sign in", new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+    <% end %>
+  </ul>
+</div>
