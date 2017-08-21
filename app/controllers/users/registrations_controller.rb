@@ -1,6 +1,6 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    protected
+    private
 
     def sign_up_params
       devise_parameter_sanitizer.sanitize(:sign_up)
