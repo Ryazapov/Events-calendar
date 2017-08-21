@@ -31,7 +31,6 @@ class EventsController < ApplicationController
 
   def destroy
     event.destroy
-    
     respond_with(event)
   end
 
