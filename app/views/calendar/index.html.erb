@@ -1,0 +1,30 @@
+<%= month_calendar(start_date: @current_month.start_date) do |date| %>
+  <div class="text-right">
+    <%= date.day %>
+  </div>
+
+  <% if @current_month.month == date.month && @event_types_by_day[date.day] %>
+    <% @event_types_by_day[date.day].each do |event_type| %>
+      <div class="circle <%= event_type %>-event float-left">
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="reveal" data-reveal="" id=<%= date %>>
+    <div class="row">
+      <div class="small-10" style="height: 30px;">
+      </div>
+      <div class="small-2">
+        <button class="close-button" aria-label=("Close modal") data-close="" type="button">
+          <span aria-hidden="true">&times</span>
+        </button>
+      </div>
+    </div>
+
+    <% if @current_month.month == date.month && @events[date.day] %>
+      <% @events[date.day].each do |event| %>
+        <%= render "events/shared/event", event: event %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
