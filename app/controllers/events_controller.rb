@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  expose :events { Event.all.decorate }
-  expose_decorated(:event)
+  expose_decorated :events, -> { Event.all }
+  expose_decorated :event
   before_action :authorize_event!, only: %i[edit update destroy]
 
   def index
