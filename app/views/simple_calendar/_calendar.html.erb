@@ -1,6 +1,6 @@
 <%= month_calendar do |date| %>
   <div class="text-right">
-      <%= day_of_date(date) %>
+      <%= date.day %>
   </div>
   <% if @start_date.month == date.month && @event_types_by_day[date.day] %>
     <% @event_types_by_day[date.day].each do |event_type| %>
