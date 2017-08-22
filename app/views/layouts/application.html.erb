@@ -13,11 +13,13 @@
   </head>
 
   <body>
-    <div class="row large-8 small-12">
-      <%= render "shared/navigation/navigation" %>
-      <%= render "shared/messages" %>
+    <div class="wrapper row large-8 small-12">
+      <div class="content">
+        <%= render "shared/navigation/navigation" %>
+        <%= render "shared/messages" %>
 
-      <%= yield %>
+        <%= yield %>
+      </div>
       <%= render "shared/footer" %>
     </div>
 
