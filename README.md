@@ -1,6 +1,6 @@
 Events calendar
 
-Ссылка на heroku: ruby-calendar.herokuapp.com
+Ссылка на heroku: https://ruby-calendar.herokuapp.com
 
 Дополнительный функционал:
 
