@@ -28,7 +28,7 @@ feature "Edit Event" do
       expect(page).to have_no_content("Update Event")
 
       visit edit_event_path(another_event)
-      expect(page).to have_content("Перейти к главной странице")
+      expect(page).to have_content("Access Denied")
     end
   end
 
