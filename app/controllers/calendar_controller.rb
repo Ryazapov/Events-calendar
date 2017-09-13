@@ -1,6 +1,6 @@
 class CalendarController < ApplicationController
   def index
-    render :welcome and return unless current_user
+    render(:welcome) && return unless current_user
 
     @current_month = current_month
     calendar = CalendarService.new(@current_month.to_range)
